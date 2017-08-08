@@ -1,0 +1,49 @@
+.grid(@name, @i: 1) when (@i =< @columns){
+    .@{name}@{i}{
+        width: 100% / @columns * @i;
+    }
+
+    .grid(@name, @i + 1);
+}
+
+.row{
+    &:after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
+
+.col{
+    float: left;
+    box-sizing: border-box!important;
+}
+
+
+.hide{
+    display: none;
+    &-sm{
+        @media screen and (max-width: @width-sm){
+            display: none;
+        }
+    }
+    &-md{
+        @media screen and (min-width: @width-sm) and (max-width: @width-mid){
+            display: none;
+        }
+    }
+    &-lg{
+        @media screen and (min-width: @width-max){
+            display: none;
+        }
+    }
+}
+
+.grid(sm);
+@media screen and (min-width: @width-sm){
+    .grid(md);
+}
+
+@media screen and (min-width: @width-mid){
+    .grid(lg);
+}

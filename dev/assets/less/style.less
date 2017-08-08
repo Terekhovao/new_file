@@ -2,3 +2,26 @@
 @import "includes/_fonts";
 @import "includes/_mixins";
 @import "includes/_icons";
+@import "includes/_grid";
+html{
+    font-family: @font-regular, sans-serif;
+    font-size: @font-size-base;
+}
+.container{
+    max-width: @width-max;
+    margin: 0 auto;
+}
+.valign{
+    position: relative;
+    height: 100%;
+    &-content{
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@import "../../components/section/_section";
+
+@import "../../components/bigSection/_bigSection";
